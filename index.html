@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS4</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="tuyen-sinh">
+      <div class="container">
+        <h2>Quản Lý Tuyển Sinh</h2>
+        <div class="tuyen-sinh-main">
+          <div class="form-group">
+            <label for="diemchuan">Điểm chuẩn</label>
+            <input
+              type="number"
+              name="diemchuan"
+              id="txt-diem-chuan"
+              class="form-control"
+              placeholder=""
+              aria-describedby="helpId"
+              required
+            />
+            <label for="diemtoan">Điểm Toán</label>
+            <input
+              type="number"
+              name="diemtoan"
+              id="txt-diem-toan"
+              class="form-control"
+              placeholder=""
+              aria-describedby="helpId"
+              required
+            />
+            <label for="diemly">Điểm Lý</label>
+            <input
+              type="number"
+              name="diemly"
+              id="txt-diem-ly"
+              class="form-control"
+              placeholder=""
+              aria-describedby="helpId"
+              required
+            />
+            <label for="diemhoa">Điểm Hoá</label>
+            <input
+              type="number"
+              name="diemhoa"
+              id="txt-diem-hoa"
+              class="form-control"
+              placeholder=""
+              aria-describedby="helpId"
+              required
+            />
+            <label for="khuvuc">Khu vực</label>
+            <select class="form-control" name="khuvuc" id="txt-khu-vuc">
+              <option value="0">X</option>
+              <option value="2">A</option>
+              <option value="1">B</option>
+              <option value="0.5">C</option>
+            </select>
+            <label for="doituong">Đối tượng</label>
+            <select class="form-control" name="khuvuc" id="txt-doi-tuong">
+              <option value="0">X</option>
+              <option value="2.5">1</option>
+              <option value="1.5">2</option>
+              <option value="1">3</option>
+            </select>
+            <button
+              class="btn btn-success"
+              id="btn-tuyen-sinh"
+              onclick="getResult()"
+            >
+              Xem kết quả
+            </button>
+          </div>
+        </div>
+        <p id="tuyen-sinh-ketqua" class=""></p>
+      </div>
+    </div>
+    <hr />
+    <div class="tien-dien">
+      <div class="container">
+        <h2>Tính tiền điện</h2>
+        <div class="form-group">
+          <label for="so-dien">Số kw điện</label>
+          <input
+            type="text"
+            name="so-dien"
+            id="txt-so-dien"
+            class="form-control"
+            placeholder="vd: 100"
+            aria-describedby="helpId"
+            required
+          />
+          <button
+            class="btn btn-success"
+            id="btn-tien-dien"
+            onclick="calElecCost()"
+          >
+            Xem kết quả
+          </button>
+        </div>
+        <p id="tien-dien-ketqua" class=""></p>
+      </div>
+    </div>
+    <hr />
+    <div class="tien-thue">
+      <div class="container">
+        <h2>Tính tiền thuế</h2>
+
+        <div class="form-group">
+          <label for="tongthunhap">Tổng thu nhập</label>
+          <input
+            type="number"
+            name="tongthunhap"
+            id="txt-tong-thu-nhap"
+            class="form-control"
+            placeholder="vd (đơn vị: triệu VND): 10"
+            aria-describedby="helpId"
+            required
+          />
+          <label for="phuthuoc">Số người phụ thuộc</label>
+          <input
+            type="number"
+            name="phuthuoc"
+            id="txt-phu-thuoc"
+            class="form-control"
+            placeholder="vd: 100000"
+            aria-describedby="helpId"
+            required
+          />
+          <button class="btn btn-success" id="btn-tien-thue" onclick="calTax()">
+            Xem kết quả
+          </button>
+        </div>
+        <p id="tien-thue-ketqua" class=""></p>
+      </div>
+    </div>
+    <hr>
+
+    <div class="tien-cap">
+      <div class="container">
+        <h2>Tính tiền cáp</h2>
+        <label for="khachHang">Loại khách hàng</label>
+            <select class="form-control" name="khachHang" id="txt-khach-hang">
+              <option value="0" checked>Nhà dân</option>
+              <option value="1">Doanh nghiệp</option>
+            </select>
+        <div class="form-group">
+          <label for="">Số kết nối</label>
+          <input type="number" name="" id="txt-so-ket-noi" class="form-control" placeholder="" aria-describedby="helpId" disabled>
+          <label for="">Số kênh cao cấp</label>
+          <input type="number" name="" id="txt-so-kenh-caocap" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+        <button class="btn btn-success" id="btn-tien-thue" onclick="tinhTienCap()">
+          Xem kết quả
+        </button>
+      <p id="tien-cap-ketqua" class=""></p>
+
+      </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./TuyenSinh.js"></script>
+    <script src="./TienDien.js"></script>
+    <script src="./TienThue.js"></script>
+    <script src="./TienCap.js"></script>
+  </body>
+</html>
